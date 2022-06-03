@@ -37,7 +37,7 @@ CREATE TABLE `schema_migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-INSERT INTO `schema_migrations` VALUES ('20220422190648'),('20220422190749'),('20220425152907'),('20220425152933');
+INSERT INTO `schema_migrations` VALUES ('20220422190648'),('20220422190749'),('20220425152907'),('20220425152933'),('20220603145338');
 DROP TABLE IF EXISTS `tasks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -54,7 +54,22 @@ CREATE TABLE `tasks` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-INSERT INTO `tasks` VALUES (1,'Fold laundry','Fold the laundry in the basket and put it in the drawers',1,0,'2022-04-25 14:21:23.314635','2022-04-26 20:39:21.558599',1),(2,'Sweep porch','Sweep dirt off the porch',2,0,'2022-04-25 14:22:30.251955','2022-04-25 15:32:22.766903',NULL),(4,'Wash dishes','Wash and dry the dishes',3,0,'2022-04-26 20:11:20.883374','2022-04-26 20:11:20.883374',NULL),(6,'Mow lawn','Get the lawn mower out of the garage. Clean underside around the blades. Fill the gas tank. Adjust the mower height. Set mower to mulch. Make sure the yard is clear of branches, toys, etc. Mow in different directions each week. Edge and sweep borders and pathways.',4,0,'2022-05-27 20:52:01.475690','2022-05-27 20:52:01.475690',NULL);
+INSERT INTO `tasks` VALUES (1,'Fold laundry','Fold the laundry in the basket and put it in the drawers',1,0,'2022-04-25 14:21:23.314635','2022-04-26 20:39:21.558599',1),(2,'Sweep porch','Sweep dirt off the porch',2,0,'2022-04-25 14:22:30.251955','2022-04-25 15:32:22.766903',NULL),(4,'Wash dishes','Wash and dry the dishes',3,0,'2022-04-26 20:11:20.883374','2022-04-26 20:11:20.883374',NULL),(6,'Mow lawn','Get the lawn mower out of the garage. Clean underside around the blades. Fill the gas tank. Adjust the mower height. Set mower to mulch. Make sure the yard is clear of branches, toys, etc. Mow in different directions each week. Edge and sweep borders and pathways.',4,1,'2022-05-27 20:52:01.475690','2022-05-27 22:10:09.404445',NULL);
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+INSERT INTO `users` VALUES (1,'Kevin','Skoglund','someone@somewhere.com','2022-06-03 14:56:05.665224','2022-06-03 14:56:05.665224');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
