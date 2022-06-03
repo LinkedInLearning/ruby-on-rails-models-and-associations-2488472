@@ -1,0 +1,54 @@
+header {
+  height: 1em;
+  padding: 1em;
+  margin-bottom: 1em;
+	background: #0099CC;
+  background-image: url('<%= image_path('gradient.png')%>');
+}
+
+header span {
+  float: right;
+}
+
+header span .button_to {
+	display: inline;
+}
+
+div#content {
+  min-height: 400px;
+}
+
+footer {
+  height: 1em;
+  padding: 1em;
+  margin-top: 1em;
+	background: #0099CC;
+  background-image: url('<%= image_path('gradient.png')%>');
+}
+
+#error-explanation {
+  border: 1px solid red;
+  color: red;
+  font-weight: bold;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+#error-explanation h2 {
+  font-size: 1.25em;
+  margin: 0;
+}
+
+span.status {
+	display: block;
+	width: 10px;
+	height: 10px;
+	margin: 0.25em;
+	padding: 0;
+  background: no-repeat center/100%;
+}
+span.status.true {
+	background-image: url('<%= image_path('solid_square_check.png') %>');
+}
+span.status.false {
+	background-image: url('<%= image_path('solid_square_x.png') %>');
+}

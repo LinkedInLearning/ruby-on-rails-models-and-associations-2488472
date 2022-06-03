@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task Manager<%= ' - ' + yield(:title) if content_for?(:title) %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= yield(:script) %>
+  </head>
+
+  <body>
+    <header>
+      <%= link_to(menu_path) do %>
+        <%= image_tag('task_manager_logo.png', height: 25, alt: 'Task Manager Logo') %>
+      <% end %>
+      <% if session[:user_id].present? %>
+        <span>
+          User: <%= @username %> | <%= button_to('Logout', logout_path, {method: :delete}) %>
+        </span>
+      <% end %>
+    </header>
+
+    <div id="content">
+      <%= render(partial: 'layouts/flash') %>
+      <%= yield %>
+    </div>
+
+    <footer>
+      Copyright <%= Time.now.year %>
+    </footer>
+
+  </body>
+</html>

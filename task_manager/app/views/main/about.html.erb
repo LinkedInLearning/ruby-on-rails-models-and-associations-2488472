@@ -1,0 +1,18 @@
+<% content_for(:title, 'About') %>
+
+<%= link_to('Back to Menu', menu_path, class: 'back-link') %><br />
+
+<div class="main about">
+  <h2>About</h2>
+
+  <p>Description of the Task Manager.</p>
+
+  <p>Created by <%= @created_by %></p>
+
+</div>
+
+<% content_for(:script) do %>
+  <% name = "Kevin" %>
+  <% # name = "Kevin'); alert('Gotcha" %>
+  <%= javascript_tag("alert('Welcome, #{j(name)}!');") %>
+<% end %>
