@@ -51,10 +51,10 @@ CREATE TABLE `tasks` (
   `updated_at` datetime(6) NOT NULL,
   `category_id` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-INSERT INTO `tasks` VALUES (1,'Fold laundry','Fold the laundry in the basket and put it in the drawers',1,0,'2022-04-25 14:21:23.314635','2022-04-26 20:39:21.558599',1),(2,'Sweep porch','Sweep dirt off the porch',2,0,'2022-04-25 14:22:30.251955','2022-04-25 15:32:22.766903',NULL),(4,'Wash dishes','Wash and dry the dishes',3,0,'2022-04-26 20:11:20.883374','2022-04-26 20:11:20.883374',NULL),(6,'Mow lawn','Get the lawn mower out of the garage. Clean underside around the blades. Fill the gas tank. Adjust the mower height. Set mower to mulch. Make sure the yard is clear of branches, toys, etc. Mow in different directions each week. Edge and sweep borders and pathways.',4,1,'2022-05-27 20:52:01.475690','2022-05-27 22:10:09.404445',NULL),(7,'Rake Leaves','Rake the leaves in the front and back yard',5,NULL,'2022-06-05 21:24:36.745008','2022-06-05 21:25:44.570912',NULL);
+INSERT INTO `tasks` VALUES (1,'Fold laundry','Fold the laundry in the basket and put it in the drawers',1,0,'2022-04-25 14:21:23.314635','2022-04-26 20:39:21.558599',1),(2,'Sweep porch','Sweep dirt off the porch',2,0,'2022-04-25 14:22:30.251955','2022-04-25 15:32:22.766903',NULL),(4,'Wash dishes','Wash and dry the dishes',3,0,'2022-04-26 20:11:20.883374','2022-04-26 20:11:20.883374',NULL),(6,'Mow lawn','Get the lawn mower out of the garage. Clean underside around the blades. Fill the gas tank. Adjust the mower height. Set mower to mulch. Make sure the yard is clear of branches, toys, etc. Mow in different directions each week. Edge and sweep borders and pathways.',4,1,'2022-05-27 20:52:01.475690','2022-05-27 22:10:09.404445',NULL),(7,'Rake Leaves','Rake the leaves in the front and back yard',5,NULL,'2022-06-05 21:24:36.745008','2022-06-05 21:25:44.570912',NULL),(8,'Wash car',NULL,6,NULL,'2022-06-05 21:38:01.924070','2022-06-05 21:38:45.594382',NULL);
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
