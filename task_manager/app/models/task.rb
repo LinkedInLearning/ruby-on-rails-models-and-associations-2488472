@@ -26,4 +26,33 @@ class Task < ApplicationRecord
       end
     end
 
+    def titleize_name
+      self.name = name.titleize
+    end
+
+    def set_default_position
+			if position.blank? || position < 1
+				max = Task.maximum(:position) || 0
+				self.position = max + 1
+			end
+		end
+
+    def log_create
+      logger.debug("Task being created: #{name}")
+    end
+
+    def log_update
+      logger.debug("Task being updated: #{name}")
+    end
+
+    def log_save
+			# runs on both create & update
+      logger.debug("Task was saved: #{name}")
+    end
+
+    def cleaning_reminder
+			# This could be a placeholder for sending an email to an admin
+      logger.debug("Remember to prune old tasks")
+    end
+
 end
