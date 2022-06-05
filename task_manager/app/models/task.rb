@@ -9,6 +9,12 @@ class Task < ApplicationRecord
 
   validate :description_has_no_prohibited_words
 
+  before_validation :titleize_name, :set_default_position
+  before_create :log_create
+  before_update :log_update
+  after_save :log_save
+  after_commit :cleaning_reminder
+
   scope :complete, -> { where(completed: true) }
   scope :incomplete, -> { where(completed: false) }
   scope :sorted, -> { order(:position) }
