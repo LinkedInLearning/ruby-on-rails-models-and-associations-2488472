@@ -3,6 +3,7 @@ class Task < ApplicationRecord
   attr_accessor :skip_titleize_name
 
   belongs_to :category, optional: true
+  has_and_belongs_to_many :tags
 
   validates_presence_of :name
   validates_length_of :name, maximum: 50
