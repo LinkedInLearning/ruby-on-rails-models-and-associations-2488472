@@ -37,7 +37,53 @@ CREATE TABLE `schema_migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-INSERT INTO `schema_migrations` VALUES ('20220422190648'),('20220422190749'),('20220425152907'),('20220425152933'),('20220603145338');
+INSERT INTO `schema_migrations` VALUES ('20220422190648'),('20220422190749'),('20220425152907'),('20220425152933'),('20220603145338'),('20220608152906'),('20220608162211'),('20220608172653');
+DROP TABLE IF EXISTS `tags`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tags` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+INSERT INTO `tags` VALUES (1,'outdoors','2022-06-08 16:23:33.660182','2022-06-08 16:23:33.660182'),(2,'indoors','2022-06-08 16:23:42.964222','2022-06-08 16:23:42.964222'),(3,'urgent','2022-06-08 16:23:51.620281','2022-06-08 16:23:51.620281');
+DROP TABLE IF EXISTS `tags_tasks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tags_tasks` (
+  `tag_id` bigint NOT NULL,
+  `task_id` bigint NOT NULL,
+  KEY `index_tags_tasks_on_tag_id_and_task_id` (`tag_id`,`task_id`),
+  KEY `index_tags_tasks_on_task_id_and_tag_id` (`task_id`,`tag_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+INSERT INTO `tags_tasks` VALUES (1,8),(3,8);
+DROP TABLE IF EXISTS `task_assignments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `task_assignments` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `task_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_task_assignments_on_task_id` (`task_id`),
+  KEY `index_task_assignments_on_user_id` (`user_id`),
+  KEY `index_task_assignments_on_task_id_and_user_id` (`task_id`,`user_id`),
+  KEY `index_task_assignments_on_user_id_and_task_id` (`user_id`,`task_id`),
+  CONSTRAINT `fk_rails_8d61fc0e26` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `fk_rails_b7a2056e80` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+INSERT INTO `task_assignments` VALUES (1,1,1,'supervisor','2022-06-08 17:29:18.006687','2022-06-08 17:29:37.416677');
 DROP TABLE IF EXISTS `tasks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -54,7 +100,7 @@ CREATE TABLE `tasks` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-INSERT INTO `tasks` VALUES (1,'Fold laundry','Fold the laundry in the basket and put it in the drawers',1,0,'2022-04-25 14:21:23.314635','2022-04-26 20:39:21.558599',1),(2,'Sweep Porch','Sweep dirt off the porch',2,0,'2022-04-25 14:22:30.251955','2022-06-08 15:14:03.980789',2),(4,'Wash Dishes','Wash and dry the dishes',3,0,'2022-04-26 20:11:20.883374','2022-06-08 15:14:03.982904',2),(6,'Mow Lawn','Get the lawn mower out of the garage. Clean underside around the blades. Fill the gas tank. Adjust the mower height. Set mower to mulch. Make sure the yard is clear of branches, toys, etc. Mow in different directions each week. Edge and sweep borders and pathways.',4,1,'2022-05-27 20:52:01.475690','2022-06-08 15:16:47.256843',2),(7,'Rake Leaves','Rake the leaves in the front and back yard',5,NULL,'2022-06-05 21:24:36.745008','2022-06-08 15:26:06.334204',NULL),(8,'Wash car',NULL,6,NULL,'2022-06-05 21:38:01.924070','2022-06-05 21:38:45.594382',NULL);
+INSERT INTO `tasks` VALUES (1,'Fold Laundry','Fold the laundry in the basket and put it in the drawers',1,0,'2022-04-25 14:21:23.314635','2022-06-08 16:29:38.844855',1),(2,'Sweep Porch','Sweep dirt off the porch',2,0,'2022-04-25 14:22:30.251955','2022-06-08 15:14:03.980789',2),(4,'Wash Dishes','Wash and dry the dishes',3,0,'2022-04-26 20:11:20.883374','2022-06-08 15:14:03.982904',2),(6,'Mow Lawn','Get the lawn mower out of the garage. Clean underside around the blades. Fill the gas tank. Adjust the mower height. Set mower to mulch. Make sure the yard is clear of branches, toys, etc. Mow in different directions each week. Edge and sweep borders and pathways.',4,1,'2022-05-27 20:52:01.475690','2022-06-08 15:16:47.256843',2),(7,'Rake Leaves','Rake the leaves in the front and back yard',5,NULL,'2022-06-05 21:24:36.745008','2022-06-08 15:26:06.334204',NULL),(8,'Wash car',NULL,6,NULL,'2022-06-05 21:38:01.924070','2022-06-05 21:38:45.594382',NULL);
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;

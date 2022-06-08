@@ -4,6 +4,7 @@ class Task < ApplicationRecord
 
   belongs_to :category, optional: true
   has_and_belongs_to_many :tags
+  has_many :task_assignments
 
   validates_presence_of :name
   validates_length_of :name, maximum: 50
