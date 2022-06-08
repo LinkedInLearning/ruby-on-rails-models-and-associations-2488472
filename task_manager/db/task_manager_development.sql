@@ -80,10 +80,10 @@ CREATE TABLE `task_assignments` (
   KEY `index_task_assignments_on_user_id_and_task_id` (`user_id`,`task_id`),
   CONSTRAINT `fk_rails_8d61fc0e26` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `fk_rails_b7a2056e80` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-INSERT INTO `task_assignments` VALUES (1,1,1,'supervisor','2022-06-08 17:29:18.006687','2022-06-08 17:29:37.416677');
+INSERT INTO `task_assignments` VALUES (1,1,1,'supervisor','2022-06-08 17:29:18.006687','2022-06-08 17:29:37.416677'),(2,8,1,NULL,'2022-06-08 17:42:14.639148','2022-06-08 17:42:14.639148');
 DROP TABLE IF EXISTS `tasks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 
   has_many :task_assignments
+  has_many :tasks, through: :task_assignments
 
   validates :first_name, presence: true, length: { maximum: 25 }
   validates :last_name, presence: true, length: { maximum: 50 }
