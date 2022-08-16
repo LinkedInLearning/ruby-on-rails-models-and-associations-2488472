@@ -1,7 +1,10 @@
 # Ruby on Rails Models and Associations
 This is the repository for the LinkedIn Learning course Ruby on Rails Models and Associations. The full course is available from [LinkedIn Learning][lil-course-url].
 
-_See the readme file in the main branch for updated instructions and information._
+![Ruby on Rails Models and Associations][lil-thumbnail-url] 
+
+Ruby on Rails can speed up and improve the development of full-featured web applications through powerful tools that provide an object-oriented interface to relational databases and automate common data tasks. In this course, extend your knowledge of Ruby on Rails as instructor Kevin Skoglund covers the built-in features of models and associations in Rails. Learn to apply named scopes, validations, callbacks, and associations to a sample project. Find out how to design smarter models with attributes not in the database and by leveraging efficient queries. Walk through the most useful built-in validation methods and learn to write custom validations. Discover how to trigger automated behaviors as data is saved to the database by using callbacks. Explore effective use of Active Record associations, investigate one-to-many and many-to-many relationships, and learn to construct queries that span several tables.
+
 ## Instructions
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
 
@@ -20,6 +23,7 @@ To resolve this issue:
     Add changes to git using this command: git add .
 	Commit changes using this command: git commit -m "some message"
 
+
 ## Installing
 1. To use these exercise files, you must have the following installed:
 	- Ruby 2.7 minimum, 3.0 or later preferred
@@ -34,8 +38,16 @@ To resolve this issue:
 	- rails db:create
 	- rails lil:import
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+### Instructor
 
+Kevin Skoglund 
+                            
+
+
+                            
+
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/kevin-skoglund).
+
+[lil-course-url]: https://www.linkedin.com/learning/ruby-on-rails-models-and-associations
+[lil-thumbnail-url]: https://cdn.lynda.com/course/2488472/2488472-1660331427377-16x9.jpg
